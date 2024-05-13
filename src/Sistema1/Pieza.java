@@ -109,7 +109,7 @@ public abstract class Pieza {
 	
 	public static Map<String, ArrayList<Integer>> inventarioAutor = new HashMap<>();
 	
-    public void crearPieza(int tipoPieza) {
+    public void crearPieza(int tipoPieza) throws Exception {
         Scanner scanner = new Scanner(System.in);
         switch (tipoPieza) {
             case 1:
@@ -210,7 +210,6 @@ public abstract class Pieza {
             	break;
             default:
                 throw new Exception("Tipo de pieza no válido");
-                break;
         }
         scanner.close();
     }
@@ -227,9 +226,24 @@ public abstract class Pieza {
 		return HistorialA;
 	}
 	
-	public void ingresarPieza(int idPieza) {}
+	public void ingresarPieza(int idPieza,String nuevoEstado) {
+		ArrayList<ArrayList<?>> Evento = new ArrayList<>();
+		Evento.addAll(Pieza.inventarioPieza.get(idPieza));
+		this.setEstadoPieza(nuevoEstado);
+		Evento.add(extraerValores(this));
+		Pieza.inventarioPieza.remove(idPieza);
+		Pieza.inventarioPieza.put(idPieza, Evento);
+
+	}
 	
-	public void devolverPieza(int idPieza) {}
+	public void devolverPieza(int idPieza, String antiguoEstado) {
+		ArrayList<ArrayList<?>> Evento = new ArrayList<>();
+		Evento.addAll(Pieza.inventarioPieza.get(idPieza));
+		this.setEstadoPieza(antiguoEstado);
+		Evento.add(extraerValores(this));
+		Pieza.inventarioPieza.remove(idPieza);
+		Pieza.inventarioPieza.put(idPieza, Evento);
+	}
 	
 	public ArrayList<Object> extraerValores(Object objeto) {
 		ArrayList<Object> valores = new ArrayList<>();
