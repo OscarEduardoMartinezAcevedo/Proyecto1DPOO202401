@@ -23,4 +23,13 @@ public class Video extends Pieza{
 	}
 	
 
+	
+	public Video registrarPieza(String titulo, int anio, String lugarCreacion, int idPieza, String estadoPieza, String autor,
+			String propietario, String ubicacion,Duration duracion, String formato, String tamanio) {
+		idPieza=Pieza.generarID();
+		return new Video(titulo,anio,lugarCreacion,idPieza,estadoPieza,autor,
+			propietario,ubicacion,duracion, formato,tamanio);
+	}
+	
+
 }

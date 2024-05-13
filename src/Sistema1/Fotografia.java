@@ -15,5 +15,13 @@ public class Fotografia extends Pieza{
 	public String getTamanio() {
 		return Tamanio;
 	}
+	
+
+	public Fotografia registrarPieza(String titulo, int anio, String lugarCreacion, int idPieza, String estadoPieza, String autor,
+			String propietario, String ubicacion, String formato, String tamanio) {
+		idPieza=Pieza.generarID();
+		return new Fotografia(titulo,anio,lugarCreacion,idPieza,estadoPieza,autor,
+			propietario,ubicacion,formato,tamanio);
+	}
 
 }
