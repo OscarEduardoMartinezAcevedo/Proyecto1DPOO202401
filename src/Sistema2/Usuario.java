@@ -1,54 +1,64 @@
 package Sistema2;
 
 public abstract class Usuario {
-	public int idUsuario;
-	public String Nombre;
-	public int Telefono;
-	public String Correo;
-	public String Login;
-	public String Password;
-	public Usuario(int idUsuario, String nombre, int telefono, String correo, String login, String password) {
-		super();
-		this.idUsuario = idUsuario;
-		Nombre = nombre;
-		Telefono = telefono;
-		Correo = correo;
-		Login = login;
-		Password = password;
-	}
-	public String getNombre() {
-		return Nombre;
-	}
-	public void setNombre(String nombre) {
-		Nombre = nombre;
-	}
-	public int getTelefono() {
-		return Telefono;
-	}
-	public void setTelefono(int telefono) {
-		Telefono = telefono;
-	}
-	public String getCorreo() {
-		return Correo;
-	}
-	public void setCorreo(String correo) {
-		Correo = correo;
-	}
-	public String getLogin() {
-		return Login;
-	}
-	public void setLogin(String login) {
-		Login = login;
-	}
-	public String getPassword() {
-		return Password;
-	}
-	public void setPassword(String password) {
-		Password = password;
-	}
-	public int getIdUsuario() {
-		return idUsuario;
-	}
-	
+    private int idUsuario;
+    private String nombre;
+    private int telefono;
+    private String correo;
+    private String login;
+    private String password;
 
+    public Usuario(int idUsuario, String nombre, int telefono, String correo, String login, String password) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.login = login;
+        this.password = password;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
+   
