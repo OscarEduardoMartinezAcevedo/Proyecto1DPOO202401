@@ -26,5 +26,15 @@ public class Impresion extends Pieza{
 	public String getDetallesInstalacion() {
 		return detallesInstalacion;
 	}
+	
+
+	
+	public Impresion registrarPieza(String titulo, int anio, String lugarCreacion, int idPieza, String estadoPieza, String autor,
+			String propietario, String ubicacion, double alto, double ancho, String materiales,
+			String detallesInstalacion) {
+		idPieza=Pieza.generarID();
+		return new Impresion(titulo,anio,lugarCreacion,idPieza,estadoPieza,autor,
+			propietario,ubicacion,alto,ancho,materiales,detallesInstalacion);
+	}
 
 }

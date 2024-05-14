@@ -1,5 +1,6 @@
 package Sistema1;
 
+
 public class Escultura extends Pieza{
 	public double Alto;
 	public double Ancho;
@@ -36,6 +37,17 @@ public class Escultura extends Pieza{
 	public String getDetallesInstalacion() {
 		return detallesInstalacion;
 	}
+
+	public static Escultura registrarPieza(String titulo, int anio, String lugarCreacion, int idPieza, String estadoPieza, String autor,
+			String propietario, String ubicacion, double alto, double ancho, double profundidad, String materiales,
+			double peso, String detallesInstalacion) {
+		idPieza=Pieza.generarID();
+		return new Escultura(titulo,anio,lugarCreacion,idPieza,estadoPieza,autor,
+		propietario,ubicacion,alto,ancho,profundidad,materiales,
+		peso,detallesInstalacion);
+	}
+	
+
 	
 
 }

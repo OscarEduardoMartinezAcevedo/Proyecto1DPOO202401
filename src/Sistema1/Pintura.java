@@ -32,4 +32,13 @@ public class Pintura extends Pieza{
 	}
 	
 
+	
+	public Pintura registrarPieza(String titulo, int anio, String lugarCreacion, int idPieza, String estadoPieza, String autor,
+			String propietario, String ubicacion, double alto, double ancho, String tecnica, String materiales) {
+		idPieza=Pieza.generarID();
+		return new Pintura(titulo,anio,lugarCreacion,idPieza,estadoPieza,autor,
+			propietario,ubicacion,alto,ancho,tecnica,materiales);
+	}
+	
+
 }
