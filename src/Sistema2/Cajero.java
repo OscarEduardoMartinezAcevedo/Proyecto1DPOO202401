@@ -27,31 +27,3 @@ public class Cajero extends Usuario {
         }
     }
 }
-
-class PiezaArte {
-    private int id;
-    private double precio;
-    private boolean vendida;
-
-    public PiezaArte(int id, double precio, boolean vendida) {
-        this.id = id;
-        this.precio = precio;
-        this.vendida = vendida;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public boolean isVendida() {
-        return vendida;
-    }
-
-    public void setVendida(boolean vendida) {
-        this.vendida = vendida;
-    }
-}

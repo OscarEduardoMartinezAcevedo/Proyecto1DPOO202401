@@ -1,6 +1,6 @@
 package Sistema2;
 
-import Sistema1.CreacionPiezas;
+import Sistema1.*;
 
 public class adminGaleria extends Usuario {
 
@@ -8,20 +8,41 @@ public class adminGaleria extends Usuario {
         super(idUsuario, nombre, telefono, correo, login, password);
     }
 
-    public void crearPieza(String tipo, String Titulo, int Anno, String lugarCreacion, String idPieza, boolean disponibleValorFijo, boolean piezaBloqueada, boolean piezaVendida, double valorMinimo, double valorInicial, String ubicacion, double alto, double ancho, String tecnica, String autor, double profundidad, String materiales, double peso, String detallesInstalacion, String detallesPresentacion, String duracion) {
-        if (tipo.equalsIgnoreCase("Pintura")) {
-            CreacionPiezas.crearPieza(Titulo, Anno, lugarCreacion, idPieza, disponibleValorFijo, piezaBloqueada, piezaVendida, valorMinimo, valorInicial, ubicacion, alto, ancho, tecnica, autor);
-        } else if (tipo.equalsIgnoreCase("Escultura")) {
-            CreacionPiezas.crearPieza(Titulo, Anno, lugarCreacion, idPieza, disponibleValorFijo, piezaBloqueada, piezaVendida, valorMinimo, valorInicial, ubicacion, alto, ancho, profundidad, materiales, peso, detallesInstalacion);
-        } else if (tipo.equalsIgnoreCase("Video")) {
-            CreacionPiezas.crearPieza(Titulo, Anno, lugarCreacion, idPieza, disponibleValorFijo, piezaBloqueada, piezaVendida, valorMinimo, valorInicial, ubicacion, duracion, autor, materiales, detallesPresentacion);
-        } else if (tipo.equalsIgnoreCase("Fotografia")) {
-            CreacionPiezas.crearPieza(Titulo, Anno, lugarCreacion, idPieza, disponibleValorFijo, piezaBloqueada, piezaVendida, valorMinimo, valorInicial, ubicacion, duracion, autor, materiales, detallesPresentacion);
-        } else if (tipo.equalsIgnoreCase("Impresion")) {
-            CreacionPiezas.crearPieza(Titulo, Anno, lugarCreacion, idPieza, disponibleValorFijo, piezaBloqueada, piezaVendida, valorMinimo, valorInicial, ubicacion, alto, ancho, materiales, detallesInstalacion);
-        } else {
-            System.out.println("Tipo de pieza no reconocido");
+    public void crearPieza(int tipoPieza) {
+        try {
+            Pieza.crearPieza(tipoPieza);
+        } catch (Exception e) {
+            System.out.println("Error al crear la pieza: " + e.getMessage());
         }
     }
-}
 
+    public void verHistorialPieza(int idPieza) {
+        try {
+            ArrayList<ArrayList<?>> historial = Pieza.consultarHistorialPieza(idPieza);
+            for (ArrayList<?> evento : historial) {
+                System.out.println(evento);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar el historial de la pieza: " + e.getMessage());
+        }
+    }
+
+    public void verHistorialArtista(String autor) {
+        try {
+            ArrayList<Integer> historial = Pieza.consultarAutor(autor);
+            for (int idPieza : historial) {
+                ArrayList<ArrayList<?>> eventos = Pieza.consultarHistorialPieza(idPieza);
+                System.out.println("Pieza ID: " + idPieza);
+                for (ArrayList<?> evento : eventos) {
+                    System.out.println(evento);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al consultar el historial del artista: " + e.getMessage());
+        }
+    }
+
+    public void verHistorialComprador(int idComprador) {
+        // Implementación para ver el historial de un comprador
+    }
+}
